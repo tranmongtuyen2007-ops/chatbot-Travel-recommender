@@ -1,14 +1,26 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
+import { Playfair_Display, Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import { Suspense } from "react"
 import "./globals.css"
+import Script from "next/script"
+import { Suspense } from "react"
+
+const playfair = Playfair_Display({
+  subsets: ["latin", "vietnamese"],
+  variable: "--font-playfair",
+  display: "swap",
+})
+
+const inter = Inter({
+  subsets: ["latin", "vietnamese"],
+  variable: "--font-inter",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
-  title: "Khách Sạn ABC - Trung tâm Sài Gòn",
-  description: "Khách sạn cao cấp tại 19 Công Trường Lam Sơn, Quận 1, TP.Hồ Chí Minh. Đặt phòng ngay: 028.3823 3999",
+  title: "Khách sạn ABC - Quận 1, TP.Hồ Chí Minh",
+  description: "Khách sạn ABC - Trải nghiệm sang trọng tại trung tâm Sài Gòn",
   generator: "v0.app",
 }
 
@@ -19,9 +31,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
+        <Script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js" strategy="afterInteractive" />
+        <Script
+          src="https://files.bpcontent.cloud/2025/10/14/23/20251014235629-RJVY1ZHY.json"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )

@@ -1,15 +1,21 @@
-import { HeroSection } from "@/components/hero-section"
-import { FeaturesSection } from "@/components/features-section"
-import { ContactSection } from "@/components/contact-section"
-import { ChatbotWidget } from "@/components/chatbot-widget"
+import { Header } from "@/components/header"
+import { Hero } from "@/components/hero"
+import { About } from "@/components/about"
+import { Rooms } from "@/components/rooms"
+import { Amenities } from "@/components/amenities"
+import { Contact } from "@/components/contact"
+import { Footer } from "@/components/footer"
 
-export default function HomePage() {
+export default function Home() {
   return (
     <main className="min-h-screen">
-      <HeroSection />
-      <FeaturesSection />
-      <ContactSection />
-      <ChatbotWidget />
+      <Header />
+      <Hero />
+      <About />
+      <Rooms />
+      <Amenities />
+      <Contact />
+      <Footer />
     </main>
   )
 }
